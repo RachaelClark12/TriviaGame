@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     var time = 45;
 
-    var final = ["Mercury", "Tokoyo"];
+    var final = ["Mercury", "Tokoyo", "Femur", "Nine", "Elephant", "Cancer", "Pacific", "64", "English", "Diamond"];
     var userAnswers = [];
 
     var questionNumber = 0;
@@ -21,7 +21,48 @@ $(document).ready(function () {
             question: "What city has the largest population?",
             answers: ['Tokoyo', 'New York City', 'Shanghai', 'Paris'],
             correctAnswer: "Tokoyo",
-        }
+        },
+        {
+            question: "What is the largest bone in the body?",
+            answers: ['Sternum', 'Scapula', 'Femur', 'Skull'],
+            correctAnswer: "Femur",
+        },
+        {
+            question: "The average body contains how many pints of blood?",
+            answers: ['Nine', 'One', 'Sixteen', 'Six'],
+            correctAnswer: "Nine",
+        },
+        {
+            question: "Which is the only mammal that can't jump?",
+            answers: ['Giraffe', 'Cat', 'Cheetah', 'Elephant'],
+            correctAnswer: "Elephant",
+        },
+        {
+            question: "What horoscope sign is a crab?",
+            answers: ['Leo', 'Scorpio', 'Cancer', 'Virgo'],
+            correctAnswer: "Cancer",
+        },
+        {
+            question: "Which is the largest ocean",
+            answers: ['Pacific', 'Atlantic', 'Indian', 'Artic'],
+            correctAnswer: "Pacific",
+        },
+        {
+            question: "How many squares are there on a chess board?",
+            answers: ['10', '164', '64', '85'],
+            correctAnswer: "64",
+        },
+        {
+            question: "Which language has the most words?",
+            answers: ['Spanish', 'Italian', 'German', 'English'],
+            correctAnswer: "English",
+        },
+        {
+            question: "What is the hardest rock?",
+            answers: ['Diamond', 'Marble', 'Flint', 'Dacite'],
+            correctAnswer: "Diamond",
+        },
+
 
     ];
 
@@ -82,9 +123,18 @@ $(document).ready(function () {
                 //console.log(radioValue0);
                 //console.log(radioValue1);
 
-                userAnswers[0]= $("input[name='answers0']:checked").val();
-                userAnswers[1]= $("input[name='answers1']:checked").val();
-                
+                userAnswers[0] = $("input[name='answers0']:checked").val();
+                userAnswers[1] = $("input[name='answers1']:checked").val();
+                userAnswers[2] = $("input[name='answers2']:checked").val();
+                userAnswers[3] = $("input[name='answers3']:checked").val();
+                userAnswers[4] = $("input[name='answers4']:checked").val();
+                userAnswers[5] = $("input[name='answers5']:checked").val();
+                userAnswers[6] = $("input[name='answers6']:checked").val();
+                userAnswers[7] = $("input[name='answers7']:checked").val();
+                userAnswers[8] = $("input[name='answers8']:checked").val();
+                userAnswers[9] = $("input[name='answers9']:checked").val();
+
+
                 console.log(userAnswers)
             });
         }
@@ -110,7 +160,6 @@ $(document).ready(function () {
             $('#incorrect').text("Incorrect: " + incorrect);
             $('#correct').show();
             $('#incorrect').show();
-
         });
 
     };
@@ -126,7 +175,7 @@ $(document).ready(function () {
             if (userAnswers[i] === final[i])
                 //If a match, increase correct by 1
                 correct++;
-            else {incorrect++}
+            else { incorrect++ }
         }
         console.log(correct)
     }

@@ -70,3 +70,10 @@ h3 {
     margin-bottom: 8px;
 }
 
+.styling{
+    font-size: 24px;
+    font-style: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
