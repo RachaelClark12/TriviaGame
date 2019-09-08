@@ -1,12 +1,11 @@
 $(document).ready(function () {
     $('#quiz').hide();
     $('#submit').hide();
-    $('#results').hide();
     $('#correct').hide();
     $('#incorrect').hide();
     $('#timer').hide();
 
-    var time = 3;
+    var time = 45;
 
     var final = ["Mercury", "Tokoyo"];
     var userAnswers = [];
@@ -39,10 +38,6 @@ $(document).ready(function () {
                 time--;
             }
             $('#timer').text("Time Remaining: " + time + "s");
-
-
-
-
         }
     }
 
@@ -84,20 +79,18 @@ $(document).ready(function () {
         //Get the value of the radio button selected
         function results() {
             $("input[type='radio']").click(function () {
-                var radioValue0 = $("input[name='answers0']:checked").val();
-                var radioValue1 = $("input[name='answers1']:checked").val();
-                console.log(radioValue0);
-                console.log(radioValue1);
+                //console.log(radioValue0);
+                //console.log(radioValue1);
 
-                userAnswers.push($("input[name=answers0]:checked").val());
-                userAnswers.push($("input[name=answers1]:checked").val());
+                userAnswers[0]= $("input[name='answers0']:checked").val();
+                userAnswers[1]= $("input[name='answers1']:checked").val();
+                
                 console.log(userAnswers)
             });
         }
 
         results();
     };
-
 
 
     showQuestion();
@@ -112,7 +105,6 @@ $(document).ready(function () {
             $(this).hide();
             $('#quiz').hide();
             $('#timer').hide();
-            $('#results').show();
             calcScore();
             $('#correct').text("Correct: " + correct);
             $('#incorrect').text("Incorrect: " + incorrect);
@@ -134,6 +126,7 @@ $(document).ready(function () {
             if (userAnswers[i] === final[i])
                 //If a match, increase correct by 1
                 correct++;
+            else {incorrect++}
         }
         console.log(correct)
     }
@@ -146,13 +139,13 @@ $(document).ready(function () {
         $('#quiz').hide();
         $('#timer').hide();
         $('#submit').hide();
-        $('#results').show();
         calcScore();
         $('#correct').text("Correct: " + correct);
         $('#incorrect').text("Incorrect: " + incorrect);
         $('#correct').show();
         $('#incorrect').show();
-        $('#timeout').text("Time's Up!")}
+        $('#timeout').text("Time's Up!")
+    }
 
 
 
@@ -183,30 +176,5 @@ $(document).ready(function () {
 
 });
 
-
-
-//Upon "Start" selection, display quiz and begin timer
-//Log user answers
-//Upon "Submit" selection, display results
-    //Number of Correct/Incorrect
-
-//iF timer runs out, show results
-
-
-
-
-
-//1. Start Button
-    //Disappears on click
-    //Quiz displays
-    //Timer Starts
-
-//2. Quiz
-
-
-//3. End Game
-    //Either timer runs out or player selects Submit button
-        //Quiz disappears
-        //Results Display
 
 
