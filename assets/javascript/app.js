@@ -13,7 +13,7 @@ $(document).ready(function () {
             correctAnswer: "Mercury",
         },
         {
-            question: "What city has the largest population",
+            question: "What city has the largest population?",
             answers: ['Tokoyo', 'New York City', 'Shanghai', 'Paris'],
             correctAnswer: "Tokoyo",
         }
@@ -27,7 +27,7 @@ $(document).ready(function () {
         function countDown() {
             if (time < 1) {
                 clearInterval(intervalId);
-                userTimeout();
+                timeOut();
             }
             if (time > 0) {
                 time--;
@@ -45,27 +45,48 @@ $(document).ready(function () {
             $('#submit').show();
             startTimer();
             function showQuestion() {
-                
-                for (i=0; i<questions.length; i++) { 
-                $('#quiz').append(
-                    "<p>" + questions[questionNumber].question + "</p>",
-                    "<p> <input name= 'answers' type='radio'id='a1' class='choices'>" + " " + questions[questionNumber].answers[0] + "</p>",
-                    "<p> <input name= 'answers' type='radio'id='a2' class='choices'>" + " " +  questions[questionNumber].answers[1] + "</p>",
-                    "<p> <input name= 'answers' type='radio'id='a3' class='choices'>" + " " +  questions[questionNumber].answers[2] + "</p>",
-                    "<p> <input name= 'answers' type='radio'id='a4' class='choices'>" + " " +  questions[questionNumber].answers[3] + "</p>");
-                questionNumber ++;}
-    
+
+                for (i = 0; i < questions.length; i++) {
+                    var interval = [i]
+                    $('#quiz').append(
+                        
+                        "<form>",
+                           "<fieldset id='group[i]''>",
+                                "<p>" + questions[questionNumber].question + "</p>" + 
+                                "<p> <input type='radio' name='answers" + [i] + "'class='choices'>" + " " + questions[questionNumber].answers[0] + "</p>",
+                                "<p> <input type='radio' name='answers" + [i] + "'class='choices'>" + " " + questions[questionNumber].answers[1] + "</p>",
+                                "<p> <input type='radio' name='answers" + [i] + "'class='choices'>" + " " + questions[questionNumber].answers[2] + "</p>",
+                                "<p> <input type='radio' name='answers" + [i] + "'class='choices'>" + " " + questions[questionNumber].answers[3] + "</p>",
+                        "</form>"
+                    );
+                    questionNumber++;
+                }
+
             }
             showQuestion();
         });
     };
 
     startGame();
-   
+
+    function timeOut() {
+        results();
+    }
 
 
 
+  // function results() {
+      //  var guess = 
+      //  var correctGuess = 0;
+      //  var incorrectGuess = 0;
+      //  var correctAnswer = questions[questionNumber].correctAnswer;
 
+     //   if 
+      //  correctGuesses ++;
+     //   
+    
+
+    //}
 
 
 
