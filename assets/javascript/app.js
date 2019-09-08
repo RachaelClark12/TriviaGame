@@ -4,6 +4,22 @@ $(document).ready(function () {
     $('#results').hide();
     $('#timer').hide();
 
+
+    var questionNumber = 0;
+    var questions = [
+        {
+            question: "Which of these planets is closet to the sun?",
+            answers: ['Mercury', 'Earth', 'Mars', 'Saturn'],
+            correctAnswer: "Mercury",
+        },
+        {
+            question: "What city has the largest population",
+            answers: ['Tokoyo', 'New York City', 'Shanghai', 'Paris'],
+            correctAnswer: "Tokoyo",
+        }
+
+    ];
+
     function startTimer() {
         var intervalId
         var time = 30;
@@ -16,7 +32,7 @@ $(document).ready(function () {
             if (time > 0) {
                 time--;
             }
-            $('#timer').text(time);
+            $('#timer').text("Time Remaining: " + time + "s");
         }
     }
 
@@ -28,16 +44,24 @@ $(document).ready(function () {
             $('#quiz').show();
             $('#submit').show();
             startTimer();
+            function showQuestion() {
+                
+                for (i=0; i<questions.length; i++) { 
+                $('#quiz').append(
+                    "<p>" + questions[questionNumber].question + "</p>",
+                    "<p> <input name= 'answers' type='radio'id='a1' class='choices'>" + " " + questions[questionNumber].answers[0] + "</p>",
+                    "<p> <input name= 'answers' type='radio'id='a2' class='choices'>" + " " +  questions[questionNumber].answers[1] + "</p>",
+                    "<p> <input name= 'answers' type='radio'id='a3' class='choices'>" + " " +  questions[questionNumber].answers[2] + "</p>",
+                    "<p> <input name= 'answers' type='radio'id='a4' class='choices'>" + " " +  questions[questionNumber].answers[3] + "</p>");
+                questionNumber ++;}
+    
+            }
+            showQuestion();
         });
     };
 
-startGame();
-
-
-
-
-
-
+    startGame();
+   
 
 
 
