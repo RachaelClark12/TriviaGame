@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('#incorrect').hide();
     $('#timer').hide();
 
-    var time = 45;
+    var time = 90;
 
     var final = ["Mercury", "Tokoyo", "Femur", "Nine", "Elephant", "Cancer", "Pacific", "64", "English", "Diamond"];
     var userAnswers = [];
